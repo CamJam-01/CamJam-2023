@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
         <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
     </head>
+    @include('_partials.header')
     <body class="text-gray-900 font-sans antialiased">
         @yield('body')
     </body>
