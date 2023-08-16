@@ -10,7 +10,7 @@ module.exports = {
       'darkgray': '#333333',
       'lightgrayTransparent': 'rgba(125, 125, 125, 0.8)',
       'black': '#000000',
-      'white': '#FFFFFF',
+      'white': 'antiquewhite',
       'red': '#FF0000',
       'blue': '#0000FF',
       'lightblue': '#ABEBFB', // picked from logo

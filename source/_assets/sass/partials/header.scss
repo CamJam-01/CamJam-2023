@@ -18,7 +18,31 @@ nav {
       background-color: rgba(255, 255, 255, 0.5);
       
       a {
-        @apply block p-4 hover:bg-lavender focus:bg-lavender -outline-offset-4 uppercase font-bold text-lg;
+        @apply relative block p-4 -outline-offset-4 uppercase font-bold text-lg ease-in-out z-10;
+
+        span {
+          position: relative;
+          color: inherit;
+        }
+
+        &::before {
+          @apply absolute top-0 left-0 w-0 h-0 bg-black;
+
+          content: '';
+          transition: width 0.12s ease-in-out;
+          z-index: -1;
+        }
+
+        &:hover,
+        &:focus {
+          @apply text-white;
+
+          &::before {
+            @apply w-full h-full;
+
+            transition: width 0.12s ease-in-out;
+          }
+        }
       }
     }
 
@@ -37,7 +61,7 @@ nav {
     }
 
     .submenu {
-      @apply absolute border-2 border-darkgray;
+      @apply absolute border-2 border-darkgray z-10 bg-white;
 
       & > .menu-item {
         @apply border-b-2;

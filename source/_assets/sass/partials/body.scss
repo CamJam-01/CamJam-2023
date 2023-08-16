@@ -1,5 +1,5 @@
 section {
-  @apply min-h-screen;
+  @apply min-h-screen py-16;
 }
 
 .container {
@@ -10,6 +10,12 @@ section {
   @apply bg-cover bg-no-repeat bg-fixed text-lightgray relative flex items-center;
 
   background-image: url('/assets/images/golden-glitter-background-compressed.jpg');
+
+  h1, h2 {
+    @apply w-fit bg-black;
+
+    padding: 5px 10px !important;
+  }
 
   &__overlay {
     @apply absolute inset-0 bg-black bg-opacity-50;

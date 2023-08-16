@@ -8,6 +8,37 @@ return [
     'social' => [
         'linkedin' => 'https://www.linkedin.com/in/cameron-jetton/',
     ],
+    'menu' => [
+        [
+            'title' => 'About',
+            'url' => '#about',
+            'submenu' => false,
+        ],
+        [
+            'title' => 'Projects',
+            'url' => '#',
+            'submenu' => true,
+            'submenu_items' => [
+                [
+                    'title' => 'Starship Cruiser',
+                    'url' => '#starship-cruiser',
+                ],
+                [
+                    'title' => 'Example Project',
+                    'url' => '#example-project',
+                ],
+                [
+                    'title' => 'Borg Cube',
+                    'url' => '#borg-cube',
+                ],
+            ]
+        ],
+        [
+            'title' => 'Contact',
+            'url' => '#contact',
+            'submenu' => false,
+        ],
+    ],
     'projects' => [
         [
             'id' => 'starship-cruiser',

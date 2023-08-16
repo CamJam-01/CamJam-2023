@@ -5,16 +5,30 @@
     </div>
     <nav class="nav-main grow" aria-label="Primary Navigation">
       <ul class="menu">
-        <li class="menu-item"><a href="#about">About</a></li>
-        <li class="menu-item has-submenu has-submenu--closed">
-          <a class="menu-toggle" href="#projects">Projects</a>
-          <!-- <ul class="submenu flex flex-col relative left-0">
-            @foreach ($projects as $project)
-              <li class="menu-item"><a href="#{{ $project->id }}">{{ $project->title }}</a></li>
-            @endforeach
-          </ul> -->
-        </li>
-        <li class="menu-item"><a href="#contact">Contact</a></li>
+        @if ($menu = $page->menu)
+          @foreach ($menu as $item)
+            @if ($submenu = $item->submenu_items)
+              <li class="menu-item has-submenu has-submenu--closed">
+                <a class="menu-toggle" href="{{ $item->url }}">
+                  <span>{{ $item->title }}</span>
+                </a>
+                <ul class="submenu flex flex-col relative left-0">
+                  @foreach ($submenu as $subitem)
+                    <li class="menu-item">
+                      <a href="{{ $subitem->url }}">{{ $subitem->title }}</a>
+                    </li>
+                  @endforeach
+                </ul>
+              </li>
+            @else
+              <li class="menu-item">
+                  <a class="menu-toggle" href="{{ $item->url }}">
+                    <span>{{ $item->title }}</span>
+                  </a>
+              </li>
+            @endif
+          @endforeach
+        @endif
       </ul>
     </nav>
     @include('_partials.icons')

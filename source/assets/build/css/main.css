@@ -523,6 +523,12 @@ h3, .h3{
 .right-0{
   right: 0px;
 }
+.top-0{
+  top: 0px;
+}
+.z-10{
+  z-index: 10;
+}
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -539,11 +545,27 @@ h3, .h3{
 .hidden{
   display: none;
 }
+.h-0{
+  height: 0px;
+}
 .min-h-\[500px\]{
   min-height: 500px;
 }
 .min-h-\[inherit\]{
   min-height: inherit;
+}
+.min-h-screen{
+  min-height: 100vh;
+}
+.w-0{
+  width: 0px;
+}
+.w-fit{
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-full{
+  width: 100%;
 }
 .min-w-\[10em\]{
   min-width: 10em;
@@ -613,6 +635,10 @@ h3, .h3{
 .font-sans{
   font-family: Inter, Helvetica, Arial, sans-serif;
 }
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -643,12 +669,22 @@ h3, .h3{
 .-outline-offset-4{
   outline-offset: -4px;
 }
+.transition{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.ease-in-out{
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
 
 .js-focus-visible .focus-visible {
-  outline: 2px dotted currentcolor;
+  outline: 2px dotted white;
   outline-offset: -4px;
 }
 .js-focus-visible .focus-visible[aria-selected=true] {
@@ -725,6 +761,8 @@ nav .menu-item{
   background-color: rgba(255, 255, 255, 0.5);
 }
 nav .menu-item a{
+  position: relative;
+  z-index: 10;
   display: block;
   padding: 1rem;
   font-size: 1.125rem;
@@ -732,14 +770,32 @@ nav .menu-item a{
   font-weight: 700;
   text-transform: uppercase;
   outline-offset: -4px;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-nav .menu-item a:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 230 250 / var(--tw-bg-opacity));
+nav .menu-item a span {
+  position: relative;
+  color: inherit;
 }
-nav .menu-item a:focus{
+nav .menu-item a::before{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 0px;
+  width: 0px;
   --tw-bg-opacity: 1;
-  background-color: rgb(230 230 250 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  content: "";
+  transition: width 0.12s ease-in-out;
+  z-index: -1;
+}
+nav .menu-item a:hover, nav .menu-item a:focus{
+  --tw-text-opacity: 1;
+  color: rgb(250 235 215 / var(--tw-text-opacity));
+}
+nav .menu-item a:hover::before, nav .menu-item a:focus::before{
+  height: 100%;
+  width: 100%;
+  transition: width 0.12s ease-in-out;
 }
 nav .menu > .menu-item{
   border-width: 2px;
@@ -754,9 +810,12 @@ nav .menu .has-submenu--closed .submenu{
 }
 nav .menu .submenu{
   position: absolute;
+  z-index: 10;
   border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(51 51 51 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 235 215 / var(--tw-bg-opacity));
 }
 nav .menu .submenu > .menu-item{
   border-bottom-width: 2px;
@@ -767,6 +826,8 @@ nav .menu .submenu > .menu-item:last-child{
 
 section{
   min-height: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .container{
@@ -785,6 +846,13 @@ section{
   --tw-text-opacity: 1;
   color: rgb(247 247 247 / var(--tw-text-opacity));
   background-image: url("/assets/images/golden-glitter-background-compressed.jpg");
+}
+.mainstage h1, .mainstage h2{
+  width: -moz-fit-content;
+  width: fit-content;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  padding: 5px 10px !important;
 }
 .mainstage__overlay{
   position: absolute;
@@ -823,16 +891,6 @@ section{
 
 body {
   font-family: "Inter", sans-serif;
-}
-
-.hover\:bg-lavender:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 230 250 / var(--tw-bg-opacity));
-}
-
-.focus\:bg-lavender:focus{
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 230 250 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px){
