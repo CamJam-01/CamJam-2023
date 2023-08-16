@@ -1,8 +1,42 @@
-// Simple Animation Library
-@import 'sal.js/dist/sal.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // Theme styles
 @import 'base/a11y';
 @import 'base/animation';
 @import 'base/colors';
 @import 'base/type';
+@import 'partials/header';
+@import 'partials/body';
+
+// Simple Animation Library
+// @import 'sal.js/dist/sal.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer base {
+  h1, .h1 {
+    @apply font-bold leading-tight sm:text-3xl md:text-4xl;
+
+    @media only screen and (max-width: 640px) {
+      font-size: clamp(2.25rem, 6vw, 2.5rem);
+    }
+  }
+  
+  h2, .h2 {
+    @apply font-bold leading-snug sm:text-2xl md:text-3xl;
+  
+    @media only screen and (max-width: 640px) {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+  }
+
+  h3, .h3 {
+    @apply text-xl font-bold leading-snug;
+  }
+}

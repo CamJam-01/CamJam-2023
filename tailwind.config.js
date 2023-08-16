@@ -6,6 +6,22 @@ module.exports = {
   theme: {
     colors: {
       'gray': '#EDEDED',
+      'lightgray': '#F7F7F7',
+      'darkgray': '#333333',
+      'lightgrayTransparent': 'rgba(125, 125, 125, 0.8)',
+      'black': '#000000',
+      'white': '#FFFFFF',
+      'red': '#FF0000',
+      'blue': '#0000FF',
+      'lightblue': '#ABEBFB', // picked from logo
+      'darkblue': '#00008B',
+      'green': '#00FF00',
+      'yellow': '#FFFF00',
+      'orange': '#FFA500',
+      'purple': '#800080',
+      'pink': '#FFC0CB',
+      'teal': '#008080',
+      'lavender': '#E6E6FA',
     },
     fontFamily: {
       'sans': 'Inter, Helvetica, Arial, sans-serif',
